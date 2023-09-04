@@ -1,0 +1,9 @@
+.DS_*
+._*
+.config.sh
+*.csv
+*.log
+*.old
+*.tmp
+*tmp*
+*dump*
