@@ -33,7 +33,7 @@ echo "$newlines" | while read -r line; do
   else
     echo "Parsing unique values.."
     xdate="$(echo $line | cut -d' ' -f1)"
-    xtime="$(echo $line | cut -d' ' -f2)"
+    xtime="$(echo $line | cut -d' ' -f2 | cut -d'.' -f1)"
     arfcn="$(echo $line | sed -n -E 's/^.* mNrArfcn = (\S*) .*/\1/p')"
     band="$(echo $line | sed -n -E 's/^.* mBands = (\S*) .*/\1/p')"
     mcc="$(echo $line | sed -n -E 's/^.* mMcc = (\S*) .*/\1/p')"
