@@ -1,5 +1,0 @@
-# Keep empty ("") for USB connection
-# Add IP address of the device which
-# you can connect with "adb connect"
-
-IP=""

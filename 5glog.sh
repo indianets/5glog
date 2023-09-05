@@ -1,19 +1,8 @@
 #!/usr/bin/env bash
 
-if [ ! -e .config.sh ]; then
-  echo "Copy .config.sh-sample to .config.sh and edit accordingly!"
-  exit 1
-fi
-
-. .config.sh
-
-# Check for adb connection
-if [ ! -z "$IP" ]; then
-  adb connect $IP
-fi
-
+# Check for adb device
 if [ ! "$(adb devices | tail -n+2 | grep device)" ]; then
-  echo "connect a device to adb"
+  echo "Connect a device to adb"
   exit 1
 fi
 
