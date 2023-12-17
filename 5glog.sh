@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Copyright: @indianets
+# Usage : ./5glog.sh
+# Output: output.csv
 
 # Check for adb device
 if [ ! "$(adb devices | tail -n+2 | grep device)" ]; then
