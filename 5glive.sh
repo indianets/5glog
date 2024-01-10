@@ -80,5 +80,5 @@ echo -e "\tSIGNAL STRENGTH"
 echo -e "================================"
 echo -e "\n\n\n\n\n"
 while (true); do
-  main
+  main $@
 done
