@@ -8,20 +8,6 @@ if [ ! "$(adb devices | tail -n+2 | grep device)" ]; then
   exit 1
 fi
 
-# Clear lines
-cls() {
-  tput cuu1
-  tput el
-  tput cuu1
-  tput el
-  tput cuu1
-  tput el
-  tput cuu1
-  tput el
-  tput cuu1
-  tput el
-}
-
 # Parse values and print
 main() {
   line="$(adb logcat -b radio -d | grep 'CellSignalStrengthNr' | grep 'processCellInfo' | tail -1)"
@@ -63,7 +49,11 @@ main() {
     fi
   fi
 
-  cls
+  clear
+  echo -e "================================"
+  echo -e "\tSIGNAL STRENGTH"
+  echo -e "================================"
+  echo
   echo -e "TIME: $xdate\n"
   printf "BAND: %4s\tRSRP: %4d %s\n" "$band" "$rsrp" "$rsrptrend"
   printf "TAC : %4d\tRSRQ: %4d %s\n" "$tac" "$rsrq" "$rsrqtrend"
@@ -74,11 +64,6 @@ main() {
   sleep ${1:-.5}
 }
 
-clear
-echo -e "================================"
-echo -e "\tSIGNAL STRENGTH"
-echo -e "================================"
-echo -e "\n\n\n\n\n"
 while (true); do
   main $@
 done
